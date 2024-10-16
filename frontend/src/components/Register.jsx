@@ -7,8 +7,8 @@ const Register = () => {
     const [password, setPassword] = useState('');
 
     // Hardcoded credentials
-    const hardcodedUser = 'testuser';
-    const hardcodedPass = 'testpassword';
+    const hardcodedUser = 'test';
+    const hardcodedPass = 'pass';
 
     const handleRegister = (e) => {
         e.preventDefault();

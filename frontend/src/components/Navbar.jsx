@@ -32,7 +32,7 @@ const Navbar = ({ searchKeyword, setSearchKeyword, isLoggedIn, setIsLoggedIn }) 
                 {isLoggedIn ? (
                     <>
                         <Link to="/profile">My Profile</Link>
-                        <Link to="/wishlist">Wishlist</Link>
+                        
                         <Link to="/cart">Cart</Link>
                         <button onClick={handleLogout} className="logout-button">Logout</button>
                     </>
