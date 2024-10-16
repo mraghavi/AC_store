@@ -1,0 +1,104 @@
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space out the items */
+    align-items: center; /* Center items vertically */
+    padding: 0.5rem 2rem;
+    background-color: #232F3E; /* Amazon-like dark blue background */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 0 2rem;
+}
+
+.search-input {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 600px;
+    transition: border-color 0.3s;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #f90;
+}
+
+.search-button {
+    padding: 0.8rem;
+    border: none;
+    background-color: #f90;
+    color: #ffffff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #d68a00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a, .logout-button {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .logout-button:hover {
+    color: #f90;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.dropdown-menu a {
+    color: #232F3E;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    color: #f90;
+}

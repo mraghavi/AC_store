@@ -1,0 +1,53 @@
+/* src/components/ProductList.css */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: contain; /* Ensure image fits without being cut */
+}
+
+.product-name {
+    font-size: 1.3em;
+    margin: 15px;
+    color: #333;
+}
+
+.product-pricing {
+    margin: 10px 15px;
+    font-weight: bold;
+}
+
+.discount-price {
+    color: #d9534f; /* Red color for discounted price */
+}
+
+.actual-price {
+    text-decoration: line-through;
+    color: #777; /* Gray color for actual price */
+}
+
+.product-ratings {
+    margin: 10px 15px;
+    font-size: 0.9em;
+    color: #555; /* Dark gray for ratings */
+}

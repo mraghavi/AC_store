@@ -1,0 +1,10 @@
+/* src/App.css */
+.app {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light gray background for the app */
+    min-height: 100vh; /* Ensure full height */
+}
+
+main {
+    padding: 20px; /* Add some padding for the main content */
+}
