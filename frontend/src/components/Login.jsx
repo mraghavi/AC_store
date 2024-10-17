@@ -6,13 +6,17 @@ const Login = ({ setIsLoggedIn }) => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const storedUser = localStorage.getItem('username');
-        const storedPass = localStorage.getItem('password');
+        const response = await fetch('http://localhost:5000/api/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
 
-        // Validate hardcoded credentials
-        if (username === storedUser && password === storedPass) {
+        if (response.ok) {
             alert('Login successful!');
             setIsLoggedIn(true); // Set logged-in status
             navigate('/'); // Redirect to homepage

@@ -1,32 +1,35 @@
 import express from 'express';
 import { Client } from '@opensearch-project/opensearch';
 import dotenv from 'dotenv';
+import Product from '../models/Product.js';
 
 dotenv.config();
 
 const router = express.Router();
 const client = new Client({ node: process.env.OPENSEARCH_URL });
 
-// Route to fetch all products from the amazon-products index
+// Route to fetch all products from OpenSearch
 router.get('/', async (req, res) => {
     try {
         const { body } = await client.search({
-            index: 'amazon-products', // Change to your correct index name
+            index: 'amazon-products',
             body: {
                 query: {
-                    match_all: {} // This retrieves all products from OpenSearch
+                    match_all: {}
                 },
                 size: 1000 
             }
         });
 
         const products = body.hits.hits.map(hit => hit._source);
-        res.json(products); // Return the products
+        res.json(products);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error fetching products' });
     }
-    // Add this route to your existing products.js file
+});
+
+// Route to fetch product details by ID
 router.get('/:id', async (req, res) => {
     try {
         const productId = req.params.id;
@@ -34,13 +37,13 @@ router.get('/:id', async (req, res) => {
             index: 'amazon-products',
             body: {
                 query: {
-                    match: { 'Unnamed: 0': productId } // Change this to the appropriate field for your unique identifier
+                    match: { 'Unnamed: 0': productId }
                 }
             }
         });
 
         if (body.hits.hits.length > 0) {
-            res.json(body.hits.hits[0]._source); // Return the first matching product
+            res.json(body.hits.hits[0]._source);
         } else {
             res.status(404).json({ message: 'Product not found' });
         }
@@ -48,8 +51,6 @@ router.get('/:id', async (req, res) => {
         console.error(error);
         res.status(500).json({ message: 'Error fetching product details' });
     }
-});
-
 });
 
 export default router;

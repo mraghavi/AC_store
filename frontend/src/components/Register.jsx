@@ -6,17 +6,22 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // Hardcoded credentials
-    const hardcodedUser = 'test';
-    const hardcodedPass = 'pass';
-
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-        // Simulate registration by saving credentials in local storage
-        localStorage.setItem('username', hardcodedUser);
-        localStorage.setItem('password', hardcodedPass);
-        alert('Registered successfully! Please login.');
-        navigate('/login'); // Redirect to login page
+        const response = await fetch('http://localhost:5000/api/users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        if (response.ok) {
+            alert('Registered successfully! Please login.');
+            navigate('/login');
+        } else {
+            alert('Registration failed. Please try again.');
+        }
     };
 
     return (

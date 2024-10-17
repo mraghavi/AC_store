@@ -1,8 +1,9 @@
-import express from 'express';
+import express from 'express'; 
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import connectDB from './config/db.js';
 import productRoutes from './routes/products.js';
+import userRoutes from './routes/users.js';
 import { Client } from '@opensearch-project/opensearch';
 import dotenv from 'dotenv';
 
@@ -57,10 +58,9 @@ createIndex();
 
 // Routes
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 // Start the server
 app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on port ${process.env.PORT || 5000}`);
 });
-
-//fjhy8xwNvNOahcQW
